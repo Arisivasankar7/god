@@ -1,16 +1,16 @@
 ---
-name: Apply k8s configuration
-hosts: node
-become: yes
-tasks:
-  - name: Create new deployment
-    command: kubectl apply -f /home/ubuntu/deployment.yml
-    environment:
-      KUBECONFIG: /home/ubuntu/.kube/config
+- name: Apply k8s configuration
+  hosts: node
+  become: yes
+  tasks:
+    - name: Create new deployment
+      command: kubectl apply -f /home/ubuntu/deployment.yml
+      environment:
+        KUBECONFIG: /home/ubuntu/.kube/config
 
-  - name: Create new service
-    command: kubectl apply -f /home/ubuntu/service.yml
-    environment:
-      KUBECONFIG: /home/ubuntu/.kube/config
+    - name: Create new service
+      command: kubectl apply -f /home/ubuntu/service.yml
+      environment:
+        KUBECONFIG: /home/ubuntu/.kube/config
 
    
