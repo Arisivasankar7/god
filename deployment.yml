@@ -1,24 +1,21 @@
-kind: deployment
-apiversion: apps/v1
-medadata:
-  nmae: devops
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops
 spec:
   replicas: 3
-  selection: 
-     matchlabels:
-        app: devops
+  selector:
+    matchLabels:
+      app: devops
   template:
     metadata:
-      Table:
+      labels:
         app: devops
-
-    spec: 
-      containers: 
+    spec:
+      containers:
       - name: devops
         image: sivasankarrr/dev
-        image pull policy : Always
-        ports: 
-        - containerport: 80
-
-
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
 
