@@ -11,5 +11,5 @@ spec:
   ports:
   - port: 8080       
     targetPort: 31200
-    nodeport: 31200
+    
 
