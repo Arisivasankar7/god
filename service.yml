@@ -1,0 +1,13 @@
+kind: service
+apiversion: v1
+metadata:
+  name: devaps
+  tables:
+    app: devops
+  spec:
+  - port: 8080
+    targetport: 31200
+  selector:
+    app: devops
+  type: loadbalancer
+
