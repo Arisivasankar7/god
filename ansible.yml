@@ -4,13 +4,22 @@
   tasks:
     - name: Create new deployment
       command: kubectl apply -f /home/ubuntu/deployment.yml
-      register: result
+      register: deployment_result
       environment:
         KUBECONFIG: /home/ubuntu/.kube/config
 
+    - name: Debug deployment result
+      debug:
+        var: deployment_result.stdout
+
     - name: Create new service
       command: kubectl apply -f /home/ubuntu/service.yml
-      register: result
+      register: service_result
       environment:
-        KUBECONFIG: /home/ubuntu/.kube/config 
+        KUBECONFIG: /home/ubuntu/.kube/config
+
+    - name: Debug service result
+      debug:
+        var: service_result.stdout
+
    
