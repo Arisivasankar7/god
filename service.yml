@@ -1,15 +1,16 @@
-kind: service
-apiversion: v1
+kind: Service
+apiVersion: v1
 metadata: 
   name: devops
   labels:
     app: devops
 spec:
-  prots:
-    -port: 8080
-    targetport: 80
-    nodeport: 31200
-selector:
-  app:
-type: loadbalancer              
+  ports:
+    - port: 8080
+      targetPort: 80
+      nodePort: 31200
+  selector:
+    app: devops
+  type: LoadBalancer
+   
 
